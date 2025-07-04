@@ -38,9 +38,11 @@ function App() {
                 <div style={{ marginTop: "20px", backgroundColor: "#f9f9f9", padding: "15px", borderRadius: "8px" }}>
                     <p><strong>Course Code:</strong> {course.course_code}</p>
                     <p><strong>Title:</strong> {course.title}</p>
-                    <p><strong>Description:</strong> {course.description}</p>
+                    <p><strong>Faculty:</strong> {course.faculty}</p>
+                    <p><strong>Semesters:</strong> {course.semesters || "N/A"}</p>
                     <p><strong>Prerequisites:</strong> {course.prerequisites || "None"}</p>
                     <p><strong>Incompatible:</strong> {course.incompatible || "None"}</p>
+                    <p><strong>Description:</strong> {course.description}</p>
                 </div>
             )}
         </div>

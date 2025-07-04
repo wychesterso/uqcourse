@@ -20,7 +20,7 @@ def get_course_from_db(course_code: str):
     cur = conn.cursor()
 
     cur.execute("""
-            SELECT course_code, title, description, prerequisites, incompatible
+            SELECT course_code, title, faculty, semesters, prerequisites, incompatible, description
             FROM courses
             WHERE course_code = ?
     """, (course_code,))
@@ -32,9 +32,11 @@ def get_course_from_db(course_code: str):
         return {
                 "course_code": row[0],
                 "title": row[1],
-                "description": row[2],
-                "prerequisites": row[3],
-                "incompatible": row[4]
+                "faculty": row[2],
+                "semesters": row[3],
+                "prerequisites": row[4],
+                "incompatible": row[5],
+                "description": row[6]
         }
     return None
 
