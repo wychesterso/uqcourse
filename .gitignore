@@ -36,3 +36,4 @@ backend/.DS_Store
 backend/.env
 backend/*.db
 backend/*.sqlite3
+backend/course_codes.txt
