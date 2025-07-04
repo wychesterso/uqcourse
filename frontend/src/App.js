@@ -36,7 +36,7 @@ function App() {
 
             {course && (
                 <div style={{ marginTop: "20px", backgroundColor: "#f9f9f9", padding: "15px", borderRadius: "8px" }}>
-                    <p><strong>Course Code:</strong> {code}</p>
+                    <p><strong>Course Code:</strong> {course.course_code}</p>
                     <p><strong>Title:</strong> {course.title}</p>
                     <p><strong>Description:</strong> {course.description}</p>
                     <p><strong>Prerequisites:</strong> {course.prerequisites || "None"}</p>
