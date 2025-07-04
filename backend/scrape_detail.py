@@ -66,32 +66,3 @@ def scrape_course_details(course_code: str):
         "incompatible": incompatible_text,
         "description": description_text,
     }
-
-def update_course(course_data):
-    with sqlite3.connect(DB_PATH) as conn:
-        conn.execute("""
-            INSERT INTO courses (course_code, title, faculty, semesters, prerequisites, incompatible, description)
-            VALUES (:course_code, :title, :faculty, :semesters, :prerequisites, :incompatible, :description)
-            ON CONFLICT(course_code) DO UPDATE SET
-                title = excluded.title,
-                faculty = excluded.faculty,
-                semesters = excluded.semesters,
-                prerequisites = excluded.prerequisites,
-                incompatible = excluded.incompatible,
-                description = excluded.description
-        """, course_data)
-        conn.commit()
-
-def main():
-    setup_db()
-    with open("course_codes.txt") as f:
-        codes = [line.strip() for line in f if line.strip()]
-
-    for code in codes:
-        print(f"Scraping {code}...")
-        data = scrape_course_details(code)
-        if data:
-            update_course(data)
-
-if __name__ == "__main__":
-    main()
