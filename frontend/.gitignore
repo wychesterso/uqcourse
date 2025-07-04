@@ -21,3 +21,17 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# node, react
+frontend/build/
+frontend/.env
+frontend/.DS_Store
+frontend/.cache/
+frontend/npm-debug.log*
+
+# python
+backend/__pycache__/
+backend/.DS_Store
+backend/.env
+backend/*.db
+backend/*.sqlite3
