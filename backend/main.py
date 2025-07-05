@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+import os
 import sqlite3
 
 from scraper import scrape_course_details
@@ -13,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DB_PATH = "courses.db"
+DB_PATH = os.getenv("DB_PATH", "courses.db")
 
 app = FastAPI()
 app.add_middleware(
