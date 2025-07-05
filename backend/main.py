@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
 
-from scrape_detail import scrape_course_details
+from scraper import scrape_course_details
 
 app = FastAPI()
 

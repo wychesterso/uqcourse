@@ -32,6 +32,7 @@ frontend/npm-debug.log*
 
 # python
 backend/__pycache__/
+backend/tests/__pycache__/
 backend/.DS_Store
 backend/.env
 backend/*.db
