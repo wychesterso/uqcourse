@@ -1,5 +1,6 @@
 import sqlite3
 import requests
+from datetime import datetime
 from bs4 import BeautifulSoup
 
 DB_PATH = "courses.db"
@@ -14,7 +15,8 @@ def setup_db():
                 semesters TEXT,
                 prerequisites TEXT,
                 incompatible TEXT,
-                description TEXT
+                description TEXT,
+                last_fetched TEXT
             )
         """)
         conn.commit()
@@ -65,4 +67,5 @@ def scrape_course_details(course_code: str):
         "prerequisites": prereq_text,
         "incompatible": incompatible_text,
         "description": description_text,
+        "last_fetched": datetime.utcnow().isoformat(),
     }
